@@ -1,18 +1,19 @@
-const getRandomNumber = (MinimumValue, MaximumValue) => {
-  if(MaximumValue <= MinimumValue) {
-    MaximumValue = MinimumValue + 1;
+const getRandomNumber = (minimumValue, maximumValue) => {
+  if(maximumValue <= minimumValue) {
+    maximumValue = minimumValue + 1;
   }
-  return Math.floor(Math.random() * (MaximumValue - MinimumValue + 1)) + MinimumValue;
+  return Math.floor(Math.random() * (maximumValue - minimumValue + 1)) + minimumValue;
 }
 console.log(getRandomNumber(0, 100));
 
 
-const getRandomСoordinates = (MinimumValue, MaximumValue, afterTheComma) => {
-  if(MaximumValue <= MinimumValue){
-    MaximumValue = MinimumValue + 0.1;
+const getRandomСoordinates = (minimumValue, maximumValue, afterTheComma) => {
+  if(maximumValue <= minimumValue){
+    maximumValue = minimumValue + 0.1;
   }
-  let RandomСoordinates = Math.random() * (MaximumValue - MinimumValue + 1) + MinimumValue;
-  return RandomСoordinates.toFixed(afterTheComma);
+  let randomСoordinates = Math.random() * (maximumValue - minimumValue + 1) + minimumValue;
+  return Number(randomСoordinates.toFixed(afterTheComma));
 }
 console.log(getRandomСoordinates(0, 100, 2));
+console.log(typeof getRandomСoordinates(0, 100, 2));
 
