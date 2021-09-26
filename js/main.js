@@ -15,5 +15,4 @@ const getRandomСoordinates = (minimumValue, maximumValue, afterTheComma) => {
   return Number(randomСoordinates.toFixed(afterTheComma));
 }
 console.log(getRandomСoordinates(0, 100, 2));
-console.log(typeof getRandomСoordinates(0, 100, 2));
 
