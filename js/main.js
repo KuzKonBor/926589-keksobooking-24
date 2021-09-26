@@ -1,18 +1,17 @@
 const getRandomNumber = (minimumValue, maximumValue) => {
   if(maximumValue <= minimumValue) {
-    maximumValue = minimumValue + 1;
+    throw new Error('Минимальное число, должно быть больше максимального.');
   }
   return Math.floor(Math.random() * (maximumValue - minimumValue + 1)) + minimumValue;
-}
-console.log(getRandomNumber(0, 100));
+};
 
 
 const getRandomСoordinates = (minimumValue, maximumValue, afterTheComma) => {
   if(maximumValue <= minimumValue){
-    maximumValue = minimumValue + 0.1;
+    throw new Error('Минимальное число, должно быть больше максимального.');
   }
-  let randomСoordinates = Math.random() * (maximumValue - minimumValue + 1) + minimumValue;
+  const randomСoordinates = Math.random() * (maximumValue - minimumValue + 1) + minimumValue;
   return Number(randomСoordinates.toFixed(afterTheComma));
-}
-console.log(getRandomСoordinates(0, 100, 2));
+};
+
 
