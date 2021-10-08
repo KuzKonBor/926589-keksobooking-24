@@ -17,8 +17,8 @@ const getRandomСoordinates = (minimumValue, maximumValue, afterTheComma) => {
 
 const getAvatar = () => {
   const avatarId = getRandomNumber(1, 9);
-  let author = {
-    avatar: 'img/avatars/user0' + avatarId + '.png' };
+  const author = {
+    avatar: `img/avatars/user0${avatarId}.png`};
   return author;
 };
 
@@ -64,9 +64,8 @@ const PHOTOS = [
 
 const SUMAR_OFFERS_COUNT = 1;
 
-const getRandomOfferElement = (elements) => {
-  return elements[getRandomNumber(0, elements.length - 1)];
-};
+const getRandomOfferElement = (elements) => elements[getRandomNumber(0, elements.length - 1)];
+
 
 const createOffer = () => {
   const lng = getRandomСoordinates(35.65000, 35.70000, 5);
@@ -78,7 +77,7 @@ const createOffer = () => {
 
     offer: {
       title: 'Жилье в аренду',
-      address: lng +  ', ' + lon,
+      address: `${lng} ${lon}`,
       price: getRandomNumber(100, 1000),
       type: getRandomOfferElement(TYPES),
       rooms: getRandomNumber(1, 50),
