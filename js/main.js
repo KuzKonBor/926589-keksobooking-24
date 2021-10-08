@@ -76,24 +76,24 @@ const createOffer = () => {
 
     author:getAvatar(),
 
-offer: {
-  title: 'Жилье в аренду',
-  address: lng +  ', ' + lon,
-  price: getRandomNumber(100, 1000),
-  type: getRandomOfferElement(TYPES),
-  rooms: getRandomNumber(1, 50),
-  guests: getRandomNumber(1, 100),
-  checkin: getRandomOfferElement(CHECKINS),
-  checkout: getRandomOfferElement(CHECKOUTS),
-  features: getRandomOfferElement(FEATURES),
-  description: getRandomOfferElement(DESCRIPTIONS),
-  photos: getRandomOfferElement(PHOTOS),
+    offer: {
+      title: 'Жилье в аренду',
+      address: lng +  ', ' + lon,
+      price: getRandomNumber(100, 1000),
+      type: getRandomOfferElement(TYPES),
+      rooms: getRandomNumber(1, 50),
+      guests: getRandomNumber(1, 100),
+      checkin: getRandomOfferElement(CHECKINS),
+      checkout: getRandomOfferElement(CHECKOUTS),
+      features: getRandomOfferElement(FEATURES),
+      description: getRandomOfferElement(DESCRIPTIONS),
+      photos: getRandomOfferElement(PHOTOS),
     },
 
-location:{
+    location:{
       lng,
       lon,
-}
-}
+    },
+  };
 };
 const similarOffers = Array.from({length: SUMAR_OFFERS_COUNT}, createOffer);
