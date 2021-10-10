@@ -1,6 +1,5 @@
-import {getRandomNumber, getRandomСoordinates, getRandomOfferElement} from './random';
-import {getAvatar} from './avatar';
-import {TYPES, CHECKINS, CHECKOUTS, FEATURES, DESCRIPTIONS, PHOTOS} from './form-objects';
+import {getRandomNumber, getRandomСoordinates, getRandomOfferElement} from './util.js';
+import {TYPES, CHECKINS, CHECKOUTS, FEATURES, DESCRIPTIONS, PHOTOS, getAvatar} from './data.js';
 
 const SUMAR_OFFERS_COUNT = 1;
 

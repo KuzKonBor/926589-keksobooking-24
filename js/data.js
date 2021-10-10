@@ -1,3 +1,12 @@
+import {getRandomNumber} from './util.js';
+
+const getAvatar = () => {
+  const avatarId = getRandomNumber(1, 9);
+  const author = {
+    avatar: `img/avatars/user0${avatarId}.png`};
+  return author;
+};
+
 const TYPES = [
   'palace',
   'flat',
@@ -38,4 +47,4 @@ const PHOTOS = [
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg',
 ];
 
-export {TYPES, CHECKINS, CHECKOUTS, FEATURES, DESCRIPTIONS, PHOTOS};
+export {TYPES, CHECKINS, CHECKOUTS, FEATURES, DESCRIPTIONS, PHOTOS, getAvatar};
