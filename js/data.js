@@ -35,11 +35,6 @@ const FEATURES = [
   'elevator',
   'conditioner',
 ];
-const DESCRIPTIONS = [
-  'big',
-  'small',
-  'average',
-];
 
 const PHOTOS = [
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/duonguyen-8LrGtIxxa4w.jpg',
@@ -47,4 +42,4 @@ const PHOTOS = [
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg',
 ];
 
-export {TYPES, CHECKINS, CHECKOUTS, FEATURES, DESCRIPTIONS, PHOTOS, getAvatar};
+export {TYPES, CHECKINS, CHECKOUTS, FEATURES, PHOTOS, getAvatar};

@@ -1,5 +1,6 @@
 import {getRandomNumber, getRandomСoordinates, getRandomOfferElement} from './util.js';
-import {TYPES, CHECKINS, CHECKOUTS, FEATURES, DESCRIPTIONS, PHOTOS, getAvatar} from './data.js';
+import {TYPES, CHECKINS, CHECKOUTS, FEATURES, PHOTOS, getAvatar} from './data.js';
+import './map.js';
 
 const SUMAR_OFFERS_COUNT = 1;
 
@@ -21,7 +22,7 @@ const createOffer = () => {
       checkin: getRandomOfferElement(CHECKINS),
       checkout: getRandomOfferElement(CHECKOUTS),
       features: getRandomOfferElement(FEATURES),
-      description: getRandomOfferElement(DESCRIPTIONS),
+      description: 'Замечательная коробка на улице под мостом, рядом все удобства.Река в которой можно помыться и набрать воды, она же и туалет на открытом воздухе. Все как вы и хотели.',
       photos: getRandomOfferElement(PHOTOS),
     },
 
@@ -32,3 +33,5 @@ const createOffer = () => {
   };
 };
 const similarOffers = Array.from({length: SUMAR_OFFERS_COUNT}, createOffer);
+
+export {createOffer};
