@@ -1,11 +1,4 @@
-import {FEATURES, PHOTOS} from './data.js';
-
-const popap = document.querySelector('.popap');
-const popupFeatures = popap.querySelector('.popup__features');
-const popupFeaturesFragment = document.createDocumentFragment();
-const popupPhotos = popap.querySelector('.popup__photos');
-const popupPhotosFragment = document.createDocumentFragment();
-
+export {getRandomNumber, getRandomСoordinates, getRandomOfferElement, getShuffledItems, getRandomItems}; //getArray};
 
 const getRandomNumber = (minimumValue, maximumValue) => {
   if(maximumValue <= minimumValue) {
@@ -25,46 +18,10 @@ const getRandomСoordinates = (minimumValue, maximumValue, afterTheComma) => {
 
 const getRandomOfferElement = (elements) => elements[getRandomNumber(0, elements.length - 1)];
 
-const getPopupType = (housing) => {
-  switch (housing) {
-    case 'flat':
-      return 'Квартира';
-    case 'bungalow':
-      return  'Бунгало';
-    case 'house':
-      return 'Дом';
-    case 'palace':
-      return 'Дворец';
-    case 'hotel':
-      return 'Отель';
-    default:
-      return 'Буду бомжевать!';
-  }
+const getShuffledItems = (items) => (items.slice().sort(() => 0.5 - Math.random()));
+
+const getRandomItems = (items) => {
+  const randomIndex = getRandomNumber(1, items.length);
+
+  return getShuffledItems(items).slice(0, randomIndex);
 };
-
-const getPopupFeatures = () => {
-  FEATURES.forEach((FEATURE) => {
-    const featureListItem = popupFeatures.querySelector(`popup__feature-- + ${FEATURE}`);
-    if (featureListItem) {
-      popupFeaturesFragment.append(featureListItem);
-    }
-  });
-
-  popupFeatures.innerHTML = '';
-  popupFeatures.append(popupFeaturesFragment);
-};
-
-const getPopupPhotos = () => {
-  PHOTOS.forEach((PHOTO) => {
-    const photoListItem = popupPhotos.src = PHOTO;
-    if (photoListItem) {
-      popupPhotosFragment.append(photoListItem);
-    }
-  });
-
-  popupPhotos.innerHTML = '';
-  popupPhotos.append(popupPhotosFragment);
-};
-
-export {getRandomNumber, getRandomСoordinates, getRandomOfferElement, getPopupType,
-  getPopupFeatures, getPopupPhotos, popap, popupFeatures, popupPhotos};
