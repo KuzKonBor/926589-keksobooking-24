@@ -73,5 +73,4 @@ const createOffer = () => {
   };
 };
 const similarOffers = Array.from({length: SUMAR_OFFERS_COUNT}, createOffer);
-
-export {createOffer, getAvatar};
+export {createOffer, getAvatar, similarOffers};

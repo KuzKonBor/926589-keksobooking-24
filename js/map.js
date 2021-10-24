@@ -1,8 +1,5 @@
-import {createOffer} from './data.js';
-
 const mapCanvas = document.querySelector('.map__canvas');
 const card = document.querySelector('#card').content.querySelector('.popup');
-const dataPopap = createOffer();
 
 const swihchType =  {
   'flat':'Квартира',
@@ -47,8 +44,8 @@ const renderPopup = (offer) => {
   });
   popupPhoto.innerHTML = '';
   popupPhoto.append(popupPhotosFragment);
-
   return popapElement;
 };
-mapCanvas.append(renderPopup(dataPopap));
+
+export {renderPopup, mapCanvas};
 
