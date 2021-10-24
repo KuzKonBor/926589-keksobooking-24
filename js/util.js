@@ -1,12 +1,9 @@
-export {getRandomNumber, getRandomСoordinates, getRandomOfferElement, getShuffledItems, getRandomItems}; //getArray};
-
 const getRandomNumber = (minimumValue, maximumValue) => {
   if(maximumValue <= minimumValue) {
     throw new Error('Минимальное число, должно быть больше максимального.');
   }
   return Math.floor(Math.random() * (maximumValue - minimumValue + 1)) + minimumValue;
 };
-
 
 const getRandomСoordinates = (minimumValue, maximumValue, afterTheComma) => {
   if(maximumValue <= minimumValue){
@@ -25,3 +22,5 @@ const getRandomItems = (items) => {
 
   return getShuffledItems(items).slice(0, randomIndex);
 };
+
+export {getRandomNumber, getRandomСoordinates, getRandomOfferElement, getShuffledItems, getRandomItems};
