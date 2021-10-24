@@ -1,11 +1,8 @@
-import './util.js';
 import {similarOffers} from './data.js';
 import {renderPopup, mapCanvas} from './map.js';
-import './test.js';
 
+const DEFAULT_SIMILAR_OFFER_IDX = 0;
+const similarOffer = similarOffers[DEFAULT_SIMILAR_OFFER_IDX];
+const cardElement = renderPopup(similarOffer);
 
-similarOffers.forEach((similarOffer) => {
-  const cardElement = renderPopup(similarOffer);
-  mapCanvas.appendChild(cardElement);
-});
-
+mapCanvas.appendChild(cardElement);
