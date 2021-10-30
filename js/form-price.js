@@ -25,16 +25,6 @@ const onMessegePriceValue = () => {
   price.reportValidity();
 };
 
-const constMaxValue = () => {
-  if (price.value < 0)  {
-    price.value = 0;
-  }
-  else if (price.value > 1000000) {
-    price.value = 1000000;
-  }
-  price.reportValidity();
-};
-
 type.addEventListener('change', onAppropriatePlaceholder);
 price.addEventListener('input', onMessegePriceValue);
-price.addEventListener('input', constMaxValue);
+
