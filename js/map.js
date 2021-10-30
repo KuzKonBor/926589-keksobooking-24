@@ -7,7 +7,6 @@ const swihchType =  {
   'house':'Дом',
   'palace':'Дворец',
   'hotel':'Отель',
-  'default':'Буду бомжевать!',
 };
 
 const renderPopup = (offer) => {
