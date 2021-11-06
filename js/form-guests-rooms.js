@@ -17,3 +17,5 @@ const onСheckingСapacity = () => {
 
 roomNumberNode.addEventListener('change', onСheckingСapacity);
 capacityNode.addEventListener('change', onСheckingСapacity);
+
+export {adForm};

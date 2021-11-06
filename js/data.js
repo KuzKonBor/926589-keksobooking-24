@@ -1,5 +1,4 @@
-import {getRandomNumber, getRandomСoordinates, getRandomOfferElement, getRandomItems} from './util.js';
-
+import {getRandomNumber, getRandomOfferElement, getRandomItems, getRandomСoordinates} from './util.js';
 
 const getAvatar = () => {
   const avatarId = getRandomNumber(1, 9);
@@ -43,19 +42,17 @@ const PHOTOS = [
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg',
 ];
 
-const SUMAR_OFFERS_COUNT = 1;
+const SUMAR_OFFERS_COUNT = 10;
 
 const createOffer = () => {
-  const lng = getRandomСoordinates(35.65000, 35.70000, 5);
-  const lon = getRandomСoordinates(139.70000, 139.80000, 5);
-
+  const lat = getRandomСoordinates(35.65000, 35.70000, 5);
+  const lng = getRandomСoordinates(139.70000, 139.80000, 5);
   return {
 
     author:getAvatar(),
-
     offer: {
       title: 'Жилье в аренду',
-      address: `${lng} ${lon}`,
+      address: `${lat} ${lng}`,
       price: getRandomNumber(100, 1000),
       type: getRandomOfferElement(TYPES),
       rooms: getRandomNumber(1, 50),
@@ -66,9 +63,9 @@ const createOffer = () => {
       description: 'Замечательная коробка на улице под мостом, рядом все удобства.Река в которой можно помыться и набрать воды, она же и туалет на открытом воздухе. Все как вы и хотели.',
       photos: getRandomItems(PHOTOS),
     },
-    location:{
+    location: {
+      lat,
       lng,
-      lon,
     },
   };
 };
