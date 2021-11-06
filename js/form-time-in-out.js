@@ -1,6 +1,6 @@
 import {adForm} from './form-guests-rooms.js';
 
-const timein= adForm.querySelector('#timein');
+const timein = adForm.querySelector('#timein');
 const timeout = adForm.querySelector('#timeout');
 
 timeout.addEventListener('change', () => {

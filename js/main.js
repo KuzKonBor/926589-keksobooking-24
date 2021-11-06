@@ -7,6 +7,7 @@ import './form-time-in-out.js';
 import './form-disabled.js';
 import './map-leaflet.js';
 
+
 const DEFAULT_SIMILAR_OFFER_IDX = 0;
 const similarOffer = similarOffers[DEFAULT_SIMILAR_OFFER_IDX];
 const cardElement = renderPopup(similarOffer);
