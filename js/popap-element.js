@@ -1,4 +1,3 @@
-const mapCanvas = document.querySelector('.map__canvas');
 const card = document.querySelector('#card').content.querySelector('.popup');
 
 const swihchType =  {
@@ -46,5 +45,5 @@ const renderPopup = (offer) => {
   return popapElement;
 };
 
-export {renderPopup, mapCanvas};
+export {renderPopup};
 

@@ -10,4 +10,3 @@ timeout.addEventListener('change', () => {
 timein.addEventListener('change', () => {
   timeout.value = timein.value;
 });
-

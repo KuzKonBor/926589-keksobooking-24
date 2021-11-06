@@ -26,3 +26,5 @@ const disableToggle = () => {
 };
 
 disableToggle();
+
+export {disableToggle};
