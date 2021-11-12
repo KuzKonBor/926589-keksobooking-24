@@ -27,4 +27,4 @@ const disableToggle = () => {
 
 disableToggle();
 
-export {disableToggle};
+export {disableToggle, mapFilters};

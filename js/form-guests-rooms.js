@@ -11,7 +11,7 @@ const roomsToCapacities = {
 
 const onСheckingСapacity = () => {
   const roomNumber = roomNumberNode.value;
-  const capacityNumber = parseInt(capacityNode.value, 10);
+  const capacityNumber = capacityNode.value;
   capacityNode.setCustomValidity(roomsToCapacities[roomNumber].includes(capacityNumber) ? '' : 'Количество гостей больше чем комнат');
 };
 
