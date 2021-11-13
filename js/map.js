@@ -1,12 +1,14 @@
 import {disableToggle} from './form-disabled.js';
-import {similarOffers} from './data.js';
 import {getAddresInputValue, getAddres} from './form-addres.js';
 import {renderPopup} from './popap-element.js';
+
+const MAP_SIZE = 10;
 
 const TOKIO = {
   lat: 35.68950,
   lng: 139.69200,
 };
+
 getAddresInputValue(getAddres(TOKIO));
 const map = L.map('map-canvas')
   .on('load', () => {
@@ -16,7 +18,7 @@ const map = L.map('map-canvas')
   .setView({
     lat: TOKIO.lat,
     lng: TOKIO.lng,
-  },10);
+  },MAP_SIZE);
 
 L.tileLayer(
   'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -55,6 +57,7 @@ const otherPinIcon = L.icon({
 
 
 const layerGroup = L.layerGroup().addTo(map);
+
 const drawAnotherPinIcon = (offers) => {
   offers.forEach((offer) => {
     L.marker (
@@ -69,10 +72,19 @@ const drawAnotherPinIcon = (offers) => {
       .addTo(layerGroup)
       .bindPopup(renderPopup(offer));
   });
-
 };
 
-drawAnotherPinIcon(similarOffers);
+const resetMapMarker = () => {
+  mainMarker.setLatLng ({
+    lat: TOKIO.lat,
+    lng: TOKIO.lng,
+  }),
+  map.setView({
+    lat: TOKIO.lat,
+    lng: TOKIO.lng,
+  },MAP_SIZE,
+  );
+  map.closePopup();
+};
 
-export {drawAnotherPinIcon};
-
+export {drawAnotherPinIcon, resetMapMarker};

@@ -20,30 +20,40 @@ const renderPopup = (offer) => {
   popapElement.querySelector('.popup__description').textContent = offer.offer.description;
   popapElement.querySelector('.popup__avatar').src = offer.author.avatar;
 
-  const popupFeatures = popapElement.querySelector('.popup__features');
-  const popupFeaturesFragment = document.createDocumentFragment();
-  offer.offer.features.forEach((feature) => {
-    const featureListItem = popupFeatures.querySelector(`.popup__feature--${feature}`);
-    if (featureListItem) {
-      popupFeaturesFragment.append(featureListItem);
+  const getFeatures = () => {
+    const popupFeatures = popapElement.querySelector('.popup__features');
+    const popupFeatureList = popapElement.querySelectorAll('.popup__feature');
+    const features = offer.offer.features;
+    if(!features) {
+      return popupFeatures.remove();
+    } else {
+      const modifiers = features.map((feature) => `popup__feature--${feature}`);
+      popupFeatureList.forEach((popupFeatureListItem) => {
+        const modifier = popupFeatureListItem.classList[1];
+        if(!modifiers.includes(modifier)) {
+          popupFeatureListItem.remove();
+        }
+      });
     }
-  });
-  popupFeatures.innerHTML = '';
-  popupFeatures.append(popupFeaturesFragment);
-
-  const popupPhotos = popapElement.querySelector('.popup__photos');
-  const popupPhoto = popupPhotos.querySelector('img');
-  const popupPhotosFragment = document.createDocumentFragment();
-  offer.offer.photos.forEach((photo) => {
-    const photoListItem = popupPhoto.src = photo;
-    if (photoListItem) {
-      popupPhotosFragment.append(photoListItem);
+  };
+  getFeatures();
+  const getPhotos = () => {
+    const popupPhotos = popapElement.querySelector('.popup__photos');
+    const popupPhoto = popupPhotos.querySelector('.popup__photo');
+    const photos = offer.offer.photos;
+    if(!photos) {
+      return popupPhotos.remove();
+    } else {
+      popupPhotos.innerHTML = '';
+      photos.forEach((photo) => {
+        const clonePhoto = popupPhoto.cloneNode(true);
+        clonePhoto.src = photo;
+        popupPhotos.appendChild(clonePhoto);
+      });
     }
-  });
-  popupPhoto.innerHTML = '';
-  popupPhoto.append(popupPhotosFragment);
+  };
+  getPhotos();
   return popapElement;
 };
 
 export {renderPopup};
-
