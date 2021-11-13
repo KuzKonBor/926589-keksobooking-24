@@ -1,5 +1,3 @@
-import {ResetForm} from './form-submit.js';
-
 const getData = (success, onFail) => {
   fetch('https://24.javascript.pages.academy/keksobooking/data')
     .then((response) => {
@@ -21,12 +19,11 @@ const sendData = (success, onFail, body) => {
   fetch('https://24.javascript.pages.academy/keksobooking',
     {
       method: 'POST',
-      body: new FormData(document.querySelector('.ad-form')),
+      body,
     },
   )
     .then((response) => {
       if (response.ok) {
-        ResetForm();
         return success();
       }
       throw new Error(`${response.status} ${response.statusText}`);

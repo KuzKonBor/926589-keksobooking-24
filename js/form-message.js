@@ -31,7 +31,6 @@ const onSuccess = () => {
   document.addEventListener('click', onPopupClick);
 };
 
-
 const onFail = (message) => {
   const error = document.querySelector('#error').content.querySelector('.error');
   const errorMessage = error.cloneNode(true);

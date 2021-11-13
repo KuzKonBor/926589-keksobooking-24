@@ -37,7 +37,6 @@ const renderPopup = (offer) => {
     }
   };
   getFeatures();
-
   const getPhotos = () => {
     const popupPhotos = popapElement.querySelector('.popup__photos');
     const popupPhoto = popupPhotos.querySelector('.popup__photo');

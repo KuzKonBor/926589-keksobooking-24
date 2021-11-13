@@ -4,15 +4,23 @@ import {mapFilters} from './form-disabled.js';
 import {resetMapMarker} from './map.js';
 import {adForm} from './form-guests-rooms.js';
 
+const ResetForm = () => {
+  adForm.reset();
+  mapFilters.reset();
+  resetMapMarker();
+};
 
 const setUserFormSubmit = () => {
   adForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
 
     sendData (
-      () => onSuccess(),
+      () => {
+        onSuccess();
+        ResetForm();
+      },
       () => onFail(),
-      new FormData(),
+      new FormData(adForm),
     );
   });
 };
@@ -20,12 +28,6 @@ const setUserFormSubmit = () => {
 setUserFormSubmit(onSuccess);
 
 const resetButton = document.querySelector('.ad-form__reset');
-
-const ResetForm = () => {
-  adForm.reset();
-  mapFilters.reset();
-  resetMapMarker();
-};
 
 resetButton.addEventListener('click', (evt) => {
   evt.preventDefault();
