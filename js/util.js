@@ -1,3 +1,4 @@
+const TIME_DELAY = 500;
 
 const getRandomNumber = (minimumValue, maximumValue) => {
   if(maximumValue <= minimumValue) {
@@ -13,4 +14,12 @@ const getRandomItems = (items) => {
   return getShuffledItems(items).slice(0, randomIndex);
 };
 
-export {getRandomNumber, getShuffledItems, getRandomItems};
+const debounce = (callback, timeoutDelay = TIME_DELAY) => {
+  let timeoutId;
+  return (...rest) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
+};
+
+export {getRandomNumber, getShuffledItems, getRandomItems, debounce};

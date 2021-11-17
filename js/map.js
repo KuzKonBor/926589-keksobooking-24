@@ -1,7 +1,6 @@
 import {disableToggle} from './form-disabled.js';
 import {getAddresInputValue, getAddres} from './form-addres.js';
 import {renderPopup} from './popap-element.js';
-
 const MAP_SIZE = 10;
 
 const TOKIO = {
@@ -74,6 +73,7 @@ const drawAnotherPinIcon = (offers) => {
   });
 };
 
+
 const resetMapMarker = () => {
   mainMarker.setLatLng ({
     lat: TOKIO.lat,
@@ -87,4 +87,4 @@ const resetMapMarker = () => {
   map.closePopup();
 };
 
-export {drawAnotherPinIcon, resetMapMarker};
+export {drawAnotherPinIcon, resetMapMarker, layerGroup};
