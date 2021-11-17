@@ -1,6 +1,6 @@
 const card = document.querySelector('#card').content.querySelector('.popup');
 
-const swihchType =  {
+const  SwihchType =  {
   'flat':'Квартира',
   'bungalow':'Бунгало',
   'house':'Дом',
@@ -8,13 +8,13 @@ const swihchType =  {
   'hotel':'Отель',
 };
 
-const renderPopup = (offer) => {
+const getRenderPopup = (offer) => {
   const popapElement = card.cloneNode(true);
 
   popapElement.querySelector('.popup__title').textContent = offer.offer.title;
   popapElement.querySelector('.popup__text--address').textContent = offer.offer.address;
   popapElement.querySelector('.popup__text--price').textContent = `${offer.offer.price}₽/ночь.`;
-  popapElement.querySelector('.popup__type').textContent = swihchType[offer.offer.type];
+  popapElement.querySelector('.popup__type').textContent = SwihchType[offer.offer.type];
   popapElement.querySelector('.popup__text--capacity').textContent = `${offer.offer.rooms} комнаты, для ${offer.offer.guests} гостей.`;
   popapElement.querySelector('.popup__text--time').textContent = `Заезд после ${offer.offer.checkin} , выезд до ${offer.offer.checkout}.`;
   popapElement.querySelector('.popup__description').textContent = offer.offer.description;
@@ -56,4 +56,4 @@ const renderPopup = (offer) => {
   return popapElement;
 };
 
-export {renderPopup};
+export {getRenderPopup};

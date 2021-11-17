@@ -8,22 +8,19 @@ import './form-message.js';
 import {getData} from './api.js';
 import {drawAnotherPinIcon, layerGroup} from './map.js';
 import './form-submit.js';
-import {filterFeatures, filterPrice, typeFilters, roomsFilters, guestsFilters, mapFilters} from './filtr.js';
+import {getFilterFeatures, getTypeFilters, getRoomsFilters, getGuestsFilters, mapFilters, getFilterPrice} from './filtr.js';
 import {debounce} from './util.js';
 
 const SUMAR_OFFERS_COUNT = 10;
 
+const localOffers = [];
 getData((offers) => {
-  let arrayOffers = offers;
-  drawAnotherPinIcon(arrayOffers.slice(0, SUMAR_OFFERS_COUNT));
+  localOffers.push(...offers);
+  drawAnotherPinIcon(localOffers.slice(0, SUMAR_OFFERS_COUNT));
+
   mapFilters.addEventListener('change', debounce(() => {
-    arrayOffers = offers;
     layerGroup.clearLayers();
-    arrayOffers = arrayOffers.filter((offer) => typeFilters(offer));
-    arrayOffers = arrayOffers.filter((offer) => roomsFilters(offer));
-    arrayOffers = arrayOffers.filter((offer) => guestsFilters(offer));
-    arrayOffers = arrayOffers.filter((offer) => filterPrice(offer));
-    arrayOffers = arrayOffers.filter((offer) => filterFeatures(offer));
-    drawAnotherPinIcon(arrayOffers.slice(0, SUMAR_OFFERS_COUNT));
+    const updatedOffers = localOffers.filter((offer) => getTypeFilters(offer) && getRoomsFilters(offer) && getGuestsFilters(offer) && getFilterPrice(offer) && getFilterFeatures(offer));
+    drawAnotherPinIcon(updatedOffers.slice(0, SUMAR_OFFERS_COUNT));
   }));
 });

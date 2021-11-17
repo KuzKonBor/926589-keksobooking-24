@@ -15,38 +15,38 @@ const PriceLevel = {
   },
 };
 
-const typeFilters = (offer) => {
+const getTypeFilters = (offer) => {
   const offerType = offer.offer.type;
   const  housingType = mapFilters.querySelector('#housing-type').value;
   return housingType === offerType || housingType === DEFAULT_VALUE;
 };
 
-const roomsFilters = (offer) => {
+const getRoomsFilters = (offer) => {
   const offerRooms = offer.offer.rooms;
   const housingRooms = mapFilters.querySelector('#housing-rooms').value;
   return housingRooms === offerRooms.toString() || housingRooms === DEFAULT_VALUE;
 };
 
 
-const guestsFilters = (offer) => {
+const getGuestsFilters = (offer) => {
   const offerGuests = offer.offer.guests;
   const housingGuests = mapFilters.querySelector('#housing-guests').value;
   return housingGuests === offerGuests.toString() || housingGuests === DEFAULT_VALUE;
 };
 
 
-const filterPrice = (offer) => {
+const getFilterPrice = (offer) => {
   const housingPrice = mapFilters.querySelector('#housing-price').value;
   switch (housingPrice) {
-    case 'low': return offer.offer.price < PriceLevel.LOW.MAX;
-    case 'middle': return offer.offer.price >= PriceLevel.MIDDLE.MIN && offer.offer.price < PriceLevel.MIDDLE.MAX;
-    case 'high': return offer.offer.price >= PriceLevel.HIGH.MIN;
-    case 'any': return true;
-    default: return false;
+    case 'low': {return offer.offer.price < PriceLevel.LOW.MAX;}
+    case 'middle': {return offer.offer.price >= PriceLevel.MIDDLE.MIN && offer.offer.price < PriceLevel.MIDDLE.MAX;}
+    case 'high': {return offer.offer.price >= PriceLevel.HIGH.MIN;}
+    case 'any': {return true;}
+    default: {return false;}
   }
 };
 
-const filterFeatures = (offer) => {
+const getFilterFeatures = (offer) => {
   const selectedFeatures = Array.from(mapFilters.querySelectorAll('#housing-features input:checked'));
   if (!offer.offer.features) {
     return false;
@@ -56,4 +56,4 @@ const filterFeatures = (offer) => {
   return featuresValues.length === filter.length;
 };
 
-export {filterFeatures, typeFilters, roomsFilters, guestsFilters, mapFilters, filterPrice};
+export {getFilterFeatures, getTypeFilters, getRoomsFilters, getGuestsFilters, mapFilters, getFilterPrice};

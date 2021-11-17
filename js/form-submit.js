@@ -4,7 +4,9 @@ import {mapFilters} from './form-disabled.js';
 import {resetMapMarker} from './map.js';
 import {adForm} from './form-guests-rooms.js';
 
-const ResetForm = () => {
+const resetButton = document.querySelector('.ad-form__reset');
+
+const getResetForm = () => {
   adForm.reset();
   mapFilters.reset();
   resetMapMarker();
@@ -17,7 +19,7 @@ const setUserFormSubmit = () => {
     sendData (
       () => {
         onSuccess();
-        ResetForm();
+        getResetForm();
       },
       () => onFail(),
       new FormData(adForm),
@@ -27,12 +29,9 @@ const setUserFormSubmit = () => {
 
 setUserFormSubmit(onSuccess);
 
-const resetButton = document.querySelector('.ad-form__reset');
-
 resetButton.addEventListener('click', (evt) => {
   evt.preventDefault();
-  ResetForm();
+  getResetForm();
 });
 
-export {adForm, setUserFormSubmit, ResetForm};
-
+export {setUserFormSubmit, getResetForm};

@@ -1,6 +1,7 @@
-import {disableToggle} from './form-disabled.js';
+import {getDisableToggle} from './form-disabled.js';
 import {getAddresInputValue, getAddres} from './form-addres.js';
-import {renderPopup} from './popap-element.js';
+import {getRenderPopup} from './popap-element.js';
+
 const MAP_SIZE = 10;
 
 const TOKIO = {
@@ -11,7 +12,7 @@ const TOKIO = {
 getAddresInputValue(getAddres(TOKIO));
 const map = L.map('map-canvas')
   .on('load', () => {
-    disableToggle();
+    getDisableToggle();
   })
 
   .setView({
@@ -54,7 +55,6 @@ const otherPinIcon = L.icon({
   iconAnchor:[20, 40],
 });
 
-
 const layerGroup = L.layerGroup().addTo(map);
 
 const drawAnotherPinIcon = (offers) => {
@@ -69,10 +69,9 @@ const drawAnotherPinIcon = (offers) => {
         draggable: true,
       })
       .addTo(layerGroup)
-      .bindPopup(renderPopup(offer));
+      .bindPopup(getRenderPopup(offer));
   });
 };
-
 
 const resetMapMarker = () => {
   mainMarker.setLatLng ({

@@ -5,14 +5,14 @@ const mapFiltersSelects = mapFilters.querySelectorAll('select');
 const mapFiltersFieldsets = mapFilters.querySelectorAll('fieldset');
 const adFormFieldsets = adForm.querySelectorAll('fieldset');
 
-const adFormDisabled = () => {
+const getAdFormDisabled = () => {
   adForm.classList.toggle('ad-form--disabled');
   adFormFieldsets.forEach((fieldset) => {
     fieldset.disabled = !fieldset.disabled;
   });
 };
 
-const mapFiltersDisabled = () => {
+const getMapFiltersDisabled = () => {
   mapFilters.classList.toggle('map__filters--disabled');
   mapFiltersSelects.forEach((select) => {
     select.disabled = !select.disabled;
@@ -20,11 +20,11 @@ const mapFiltersDisabled = () => {
   });
 };
 
-const disableToggle = () => {
-  adFormDisabled();
-  mapFiltersDisabled();
+const getDisableToggle = () => {
+  getAdFormDisabled();
+  getMapFiltersDisabled();
 };
 
-disableToggle();
+getDisableToggle();
 
-export {disableToggle, mapFilters};
+export {getDisableToggle, mapFilters};

@@ -1,7 +1,7 @@
 const MAX_VALUE = 1000000;
 const price = document.querySelector('#price');
 const type = document.querySelector('#type');
-const minPrice = {
+const MIN_PRICE = {
   'bungalow': 0,
   'flat': 1000,
   'hotel': 3000,
@@ -10,7 +10,7 @@ const minPrice = {
 };
 
 const onAppropriatePlaceholder = () => {
-  price.placeholder = minPrice[type.value];
+  price.placeholder = MIN_PRICE[type.value];
 };
 
 const onMessegePriceValue = () => {
@@ -27,4 +27,3 @@ const onMessegePriceValue = () => {
 
 type.addEventListener('change', onAppropriatePlaceholder);
 price.addEventListener('input', onMessegePriceValue);
-

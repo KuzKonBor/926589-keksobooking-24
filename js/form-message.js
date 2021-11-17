@@ -1,5 +1,8 @@
 const isEscEvent = (evt) => evt.key === 'Escape' || evt.key === 'Esc';
 
+let onPopupEscKeydown = null;
+let onPopupClick = null;
+
 const closePopup = () => {
   if (document.querySelector('.success')) {
     document.querySelector('.success').remove();
@@ -11,11 +14,11 @@ const closePopup = () => {
   document.removeEventListener('click', onPopupClick);
 };
 
-const onPopupClick = () => {
+onPopupClick = () => {
   closePopup();
 };
 
-const onPopupEscKeydown = (evt) => {
+onPopupEscKeydown = (evt) => {
   if (isEscEvent(evt)) {
     evt.preventDefault();
     closePopup();
@@ -42,6 +45,5 @@ const onFail = (message) => {
   document.addEventListener('keydown', onPopupEscKeydown);
   document.addEventListener('click', closePopup);
 };
-
 
 export {onSuccess, onFail};
