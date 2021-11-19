@@ -83,6 +83,7 @@ const resetMapMarker = () => {
     lng: TOKIO.lng,
   },MAP_SIZE,
   );
+  getAddresInputValue(getAddres(TOKIO));
   map.closePopup();
 };
 

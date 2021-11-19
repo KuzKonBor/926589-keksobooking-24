@@ -3,7 +3,7 @@ const MIN_TITLE_LENGTH = 30;
 const title = document.querySelector('#title');
 
 
-const onTitleValidity = () => {
+const onTitleInput = () => {
   const valueLength = title.value.length;
 
   if (valueLength < MIN_TITLE_LENGTH) {
@@ -16,4 +16,4 @@ const onTitleValidity = () => {
   title.reportValidity();
 };
 
-title.addEventListener('input', onTitleValidity);
+title.addEventListener('input', onTitleInput);
