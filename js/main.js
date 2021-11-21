@@ -10,6 +10,7 @@ import {drawAnotherPinIcon, layerGroup} from './map.js';
 import './form-submit.js';
 import {getFilterFeatures, getTypeFilters, getRoomsFilters, getGuestsFilters, mapFilters, getFilterPrice} from './filtr.js';
 import {debounce} from './util.js';
+import './file-photos.js';
 
 const SUMAR_OFFERS_COUNT = 10;
 

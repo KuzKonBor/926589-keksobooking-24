@@ -4,6 +4,7 @@ import {mapFilters} from './form-disabled.js';
 import {resetMapMarker} from './map.js';
 import {adForm} from './form-guests-rooms.js';
 import {PRICE_PLACEHOLDER, price} from './form-price.js';
+import {resetImages} from './file-photos.js';
 
 const resetButton = document.querySelector('.ad-form__reset');
 
@@ -12,7 +13,7 @@ const getResetForm = () => {
   mapFilters.reset();
   price.placeholder = PRICE_PLACEHOLDER;
   resetMapMarker();
-
+  resetImages();
 };
 
 const setUserFormSubmit = () => {

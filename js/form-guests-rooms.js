@@ -1,7 +1,7 @@
 const adForm = document.querySelector('.ad-form');
-const capacityNode = adForm.querySelector('#capacity');
-const roomNumberNode = adForm.querySelector('#room_number');
-const capacityOptions = capacityNode.querySelectorAll('option');
+const capacity = adForm.querySelector('#capacity');
+const roomNumber = adForm.querySelector('#room_number');
+const capacityOptions = capacity.querySelectorAll('option');
 const roomsToCapacities = {
   1:['1'],
   2:['1', '2'],
@@ -11,8 +11,8 @@ const roomsToCapacities = {
 
 const validateRoomSelect = () => {
   capacityOptions.forEach((option) => {
-    option.selected = roomsToCapacities[roomNumberNode.value][0] === option.value;
-    option.disabled = roomsToCapacities[roomNumberNode.value].indexOf(option.value) < 0;
+    option.selected = roomsToCapacities[roomNumber.value][0] === option.value;
+    option.disabled = roomsToCapacities[roomNumber.value].indexOf(option.value) < 0;
     option.hidden = option.disabled;
   });
 };
@@ -23,6 +23,6 @@ const onRoomSelectChange = () => {
   validateRoomSelect();
 };
 
-roomNumberNode.addEventListener('change', onRoomSelectChange);
+roomNumber.addEventListener('change', onRoomSelectChange);
 
 export {adForm};
